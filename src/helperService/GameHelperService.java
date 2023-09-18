@@ -17,9 +17,10 @@ public class GameHelperService {
 
     public String[] randomKeyAndValue(List<String> keys, List<String> values, int length) {
         int randomIndex = RandomUtil.getInstance().getRandomIndex(length);
-        String[] returnKeyAndValue = new String[2];
+        String[] returnKeyAndValue = new String[3];
         returnKeyAndValue[1] = values.get(randomIndex);
         returnKeyAndValue[0] = keys.get(randomIndex);
+        returnKeyAndValue[2] = String.valueOf(randomIndex);
         return returnKeyAndValue;
     }
 

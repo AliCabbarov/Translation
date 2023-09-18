@@ -36,7 +36,7 @@ public class GameServiceImpl implements GameService {
             keys.add(valueAndKey.getKey());
         }
         for (int i = 0; i < countWord; i++) {
-            String[] randomKeyAndValue = GameHelperService.getInstance().randomKeyAndValue(keys,values, keyAndValues.size());
+            String[] randomKeyAndValue = GameHelperService.getInstance().randomKeyAndValue(keys,values, values.size());
             String inputValue = InputUtil.getInstance().inputString(randomKeyAndValue[0] + " - ");
             if (inputValue.equals(randomKeyAndValue[1])) {
                 trueAnswer++;
@@ -44,6 +44,8 @@ public class GameServiceImpl implements GameService {
                 System.out.println("True answer: " + randomKeyAndValue[1]);
                 wrongAnswer++;
             }
+            keys.remove(Integer.parseInt(randomKeyAndValue[2]));
+            values.remove(Integer.parseInt(randomKeyAndValue[2]));
         }
         GameHelperService.getInstance().result(wrongAnswer,trueAnswer);
     }
@@ -67,7 +69,7 @@ public class GameServiceImpl implements GameService {
             keys.add(valueAndKey.getKey());
         }
         for (int i = 0; i < countWord; i++) {
-            String[] randomKeyAndValue = GameHelperService.getInstance().randomKeyAndValue(keys,values, keyAndValues.size());
+            String[] randomKeyAndValue = GameHelperService.getInstance().randomKeyAndValue(keys,values, values.size());
             String inputKey = InputUtil.getInstance().inputString(randomKeyAndValue[1] + " - ");
             if (inputKey.equals(randomKeyAndValue[0])) {
                 trueAnswer++;
@@ -75,6 +77,8 @@ public class GameServiceImpl implements GameService {
                 System.out.println("True answer: " + randomKeyAndValue[0]);
                 wrongAnswer++;
             }
+            keys.remove(Integer.parseInt(randomKeyAndValue[2]));
+            values.remove(Integer.parseInt(randomKeyAndValue[2]));
         }
         GameHelperService.getInstance().result(wrongAnswer,trueAnswer);
 
